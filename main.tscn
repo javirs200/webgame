@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://di73esvar3xe"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_fkrkv"]
+[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://coche.tscn" id="2_a0l28"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gaggj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aufre"]
+albedo_color = Color(0.247059, 0.517647, 0.454902, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cbrav"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s6uj6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2l5x"]
+albedo_color = Color(0.984179, 0.154062, 1.15514e-06, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8nyg"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_fkrkv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.951766, 0.306825, 0, -0.306825, 0.951766, -0.574731, 2.8388, 4.76358)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(9.93606, 0, 0, 0, 1.00503, 0, 0, 0, 10.2652, 0, 0, 0)
+mesh = SubResource("PlaneMesh_gaggj")
+surface_material_override/0 = SubResource("StandardMaterial3D_aufre")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_cbrav")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00169277, 1.96549, 0.00309825)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_s6uj6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m2l5x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_c8nyg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.709878, 0.704325, 0, -0.704325, 0.709878, 0.250049, 4.37312, 4.69655)
+
+[node name="Coche" parent="." instance=ExtResource("2_a0l28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
