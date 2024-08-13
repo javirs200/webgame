@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://di73esvar3xe"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_fkrkv"]
+[ext_resource type="Script" path="res://CameraController.gd" id="1_fkrkv"]
 [ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://coche.tscn" id="2_a0l28"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gaggj"]
@@ -17,14 +17,6 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_fkrkv")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 52.0
-offset_top = 31.0
-offset_right = 183.0
-offset_bottom = 105.0
 
 [node name="Camera3D1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.943864, 0.330333, 0, -0.330333, 0.943864, -2.46557, 9.13873, 9.63521)

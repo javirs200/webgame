@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2dkhoksmylrj"]
 
 [ext_resource type="ArrayMesh" uid="uid://d1vbsmlc44l8y" path="res://assetts/coche.obj" id="1_4c0e3"]
-[ext_resource type="Script" path="res://ColisionDetector.gd" id="1_31dp1"]
+[ext_resource type="Script" path="res://CarController.gd" id="1_31dp1"]
 [ext_resource type="ArrayMesh" uid="uid://4vfadxi4qf4q" path="res://assetts/rueda.obj" id="2_0ds6v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gtp3d"]
