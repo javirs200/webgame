@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://di73esvar3xe"]
+[gd_scene load_steps=8 format=3 uid="uid://di73esvar3xe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fkrkv"]
 [ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://coche.tscn" id="2_a0l28"]
@@ -11,18 +11,30 @@ albedo_color = Color(0.247059, 0.517647, 0.454902, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cbrav"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_72ub1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnt2v"]
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_fkrkv")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 52.0
+offset_top = 31.0
+offset_right = 183.0
+offset_bottom = 105.0
+
 [node name="Camera3D1" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.951766, 0.306825, 0, -0.306825, 0.951766, -0.574731, 2.8388, 4.76358)
+transform = Transform3D(1, 0, 0, 0, 0.943864, 0.330333, 0, -0.330333, 0.943864, -2.46557, 9.13873, 9.63521)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.709878, 0.704325, 0, -0.704325, 0.709878, 0.250049, 4.37312, 4.69655)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.93606, 0, 0, 0, 1.00503, 0, 0, 0, 10.2652, 0, 0, 0)
+transform = Transform3D(100.289, 0, 0, 0, 1.00289, 0, 0, 0, 100.289, 0, 0, 0)
 mesh = SubResource("PlaneMesh_gaggj")
 surface_material_override/0 = SubResource("StandardMaterial3D_aufre")
 
@@ -32,4 +44,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_aufre")
 shape = SubResource("ConcavePolygonShape3D_cbrav")
 
 [node name="Coche" parent="." instance=ExtResource("2_a0l28")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+transform = Transform3D(-0.0227048, 0, -0.999742, 0, 1, 0, 0.999742, 0, -0.0227048, 4, 2, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.995873, 0.0907542, 0, -0.0907542, 0.995873, -8.30794, 0.645276, -2.90614)
+mesh = SubResource("BoxMesh_72ub1")
+
+[node name="cubo1" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/cubo1"]
+shape = SubResource("BoxShape3D_tnt2v")
