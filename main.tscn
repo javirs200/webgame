@@ -8,8 +8,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aufre"]
 albedo_color = Color(0.247059, 0.517647, 0.454902, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cbrav"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e671y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_72ub1"]
 
@@ -25,24 +24,24 @@ current = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.709878, 0.704325, 0, -0.704325, 0.709878, 0.250049, 4.37312, 4.69655)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Suelo" type="MeshInstance3D" parent="."]
 transform = Transform3D(100.289, 0, 0, 0, 1.00289, 0, 0, 0, 100.289, 0, 0, 0)
 mesh = SubResource("PlaneMesh_gaggj")
 surface_material_override/0 = SubResource("StandardMaterial3D_aufre")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Suelo"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_cbrav")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_e671y")
 
 [node name="Coche" parent="." instance=ExtResource("2_a0l28")]
 transform = Transform3D(-0.0227048, 0, -0.999742, 0, 1, 0, 0.999742, 0, -0.0227048, 4, 2, 0)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="Cubo" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.995873, 0.0907542, 0, -0.0907542, 0.995873, -8.30794, 0.645276, -2.90614)
 mesh = SubResource("BoxMesh_72ub1")
 
-[node name="cubo1" type="StaticBody3D" parent="MeshInstance3D2"]
+[node name="cubo1" type="StaticBody3D" parent="Cubo"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/cubo1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cubo/cubo1"]
 shape = SubResource("BoxShape3D_tnt2v")
