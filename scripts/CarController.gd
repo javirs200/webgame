@@ -1,5 +1,7 @@
 extends Node
 
+const Autodrive = preload("res://scripts/autoDrive.gd")
+
 const horsepower = 20
 const maxSteerAngle = 0.5
 
@@ -10,12 +12,16 @@ var rev = false
 
 var carBody3d
 
+var ap
+
 func _ready():
 	
 	carBody3d = $VehicleBody3D
 	
 	if carBody3d != null:
-	
+		
+		ap = Autodrive.new(carBody3d)
+		
 		carBody3d.contact_monitor = true
 		carBody3d.max_contacts_reported = 2	
 
@@ -49,6 +55,9 @@ func _input(event):
 
 	if Input.is_action_pressed("rev"):
 		rev = !rev
+		
+	if Input.is_action_just_pressed("ui_right"):
+		ap.doMagic()
 		
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
