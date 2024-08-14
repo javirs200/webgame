@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 const horsepower = 20
 const maxSteerAngle = 0.5
@@ -11,9 +11,11 @@ var rev = false
 var carBody3d
 
 func _ready():
+	
 	carBody3d = $VehicleBody3D
 	
 	if carBody3d != null:
+	
 		carBody3d.contact_monitor = true
 		carBody3d.max_contacts_reported = 2	
 
