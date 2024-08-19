@@ -40,7 +40,7 @@ shape = SubResource("WorldBoundaryShape3D_e671y")
 transform = Transform3D(-0.0227048, 0, -0.999742, 0, 1, 0, 0.999742, 0, -0.0227048, 4, 2, 0)
 
 [node name="Cubo" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.995873, 0.0907542, 0, -0.0907542, 0.995873, -8.30794, 0.645276, -2.90614)
+transform = Transform3D(0.906212, 0.357951, 0.225055, 0.182264, 0.149574, -0.971806, -0.381522, 0.921682, 0.0703047, -9.901, 0.645, 0.002)
 mesh = SubResource("BoxMesh_72ub1")
 
 [node name="cubo1" type="StaticBody3D" parent="Cubo"]

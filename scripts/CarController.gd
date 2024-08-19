@@ -12,6 +12,8 @@ var rev = false
 
 var carBody3d
 
+var cubesDetector = true
+
 var ap
 
 var score = 0
@@ -65,9 +67,37 @@ func _input(event):
 		get_tree().quit()
 	
 func _on_vehicle_body_entered(body: PhysicsBody3D):
-	print("VehicleBody3D collided with: " + body.name)
-	if(body.name == "cubo1"):
+	#print("VehicleBody3D collided with: " + body.name)
+	
+	#check if collision body is a cube and increase score , <- Car Cube Cetector
+	if(body.name == "cubo1" && cubesDetector):
 		ScoreManager.increaseScore(1)
-		body.get_parent_node_3d().scale = Vector3(2,2,2)
-		body.queue_free()
+		moveAndRestart(body.get_parent_node_3d())
+
+func moveAndRestart(cubeNode:Node3D):
+	# disable car cube detector 
+	cubesDetector = false 
+	
+	#stores child collider and removes them
+	var child = cubeNode.get_child(0)
+	cubeNode.remove_child(child)
+	
+	#enlarge the cube and wait 1 second
+	cubeNode.scale = Vector3(2,2,2)
+	await get_tree().create_timer(1).timeout
+	
+	#hides the cube and search for another position and wait 0,5 seconds
+	cubeNode.visible = false
+	cubeNode.position = generateRandomPosition(10, 10)
+	await get_tree().create_timer(0.5).timeout
+	
+	#restore detector colliders scale and visibility
+	cubesDetector = true
+	cubeNode.scale = Vector3(1, 1, 1)
+	cubeNode.visible = true
+	cubeNode.add_child(child)
 		
+func generateRandomPosition(Areax : int, Areaz : int) -> Vector3:
+	var randomX = randi_range(-Areax, Areax)
+	var randomZ = randi_range(-Areaz, Areaz)
+	return Vector3(randomX, 0.645, randomZ)
