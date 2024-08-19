@@ -14,6 +14,8 @@ var carBody3d
 
 var ap
 
+var score = 0
+
 func _ready():
 	
 	carBody3d = $VehicleBody3D
@@ -65,5 +67,7 @@ func _input(event):
 func _on_vehicle_body_entered(body: PhysicsBody3D):
 	print("VehicleBody3D collided with: " + body.name)
 	if(body.name == "cubo1"):
+		ScoreManager.increaseScore(1)
 		body.get_parent_node_3d().scale = Vector3(2,2,2)
 		body.queue_free()
+		

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4vfadxi4qf4q"
+path="res://.godot/imported/rueda.obj-6c73e7f067c0d79898644f1f931878cf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rueda.obj-6c73e7f067c0d79898644f1f931878cf.mesh"]
+
+source_file="res://assetts/3dModels/rueda.obj"
+dest_files=["res://.godot/imported/rueda.obj-6c73e7f067c0d79898644f1f931878cf.mesh", "res://.godot/imported/rueda.obj-6c73e7f067c0d79898644f1f931878cf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(0.3, 0.3, 0.3)
+offset_mesh=Vector3(0, 1.05, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

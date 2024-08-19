@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://di73esvar3xe"]
+[gd_scene load_steps=10 format=3 uid="uid://di73esvar3xe"]
 
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="1_fkrkv"]
-[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://coche.tscn" id="2_a0l28"]
+[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://nodes/coche.tscn" id="2_a0l28"]
+[ext_resource type="PackedScene" uid="uid://ditvxpen7gc5s" path="res://nodes/control.tscn" id="3_gr82g"]
+[ext_resource type="Script" path="res://scripts/control.gd" id="4_trc60"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gaggj"]
 
@@ -45,3 +47,6 @@ mesh = SubResource("BoxMesh_72ub1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cubo/cubo1"]
 shape = SubResource("BoxShape3D_tnt2v")
+
+[node name="Control" parent="." instance=ExtResource("3_gr82g")]
+script = ExtResource("4_trc60")
