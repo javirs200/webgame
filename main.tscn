@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://di73esvar3xe"]
+[gd_scene load_steps=10 format=3 uid="uid://di73esvar3xe"]
 
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="1_fkrkv"]
-[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://coche.tscn" id="2_a0l28"]
+[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://nodes/coche.tscn" id="2_a0l28"]
+[ext_resource type="PackedScene" uid="uid://ditvxpen7gc5s" path="res://nodes/control.tscn" id="3_gr82g"]
+[ext_resource type="Script" path="res://scripts/control.gd" id="4_trc60"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gaggj"]
 
@@ -38,10 +40,13 @@ shape = SubResource("WorldBoundaryShape3D_e671y")
 transform = Transform3D(-0.0227048, 0, -0.999742, 0, 1, 0, 0.999742, 0, -0.0227048, 4, 2, 0)
 
 [node name="Cubo" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.995873, 0.0907542, 0, -0.0907542, 0.995873, -8.30794, 0.645276, -2.90614)
+transform = Transform3D(0.906212, 0.357951, 0.225055, 0.182264, 0.149574, -0.971806, -0.381522, 0.921682, 0.0703047, -9.901, 0.645, 0.002)
 mesh = SubResource("BoxMesh_72ub1")
 
 [node name="cubo1" type="StaticBody3D" parent="Cubo"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cubo/cubo1"]
 shape = SubResource("BoxShape3D_tnt2v")
+
+[node name="Control" parent="." instance=ExtResource("3_gr82g")]
+script = ExtResource("4_trc60")
