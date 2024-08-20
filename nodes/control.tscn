@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ditvxpen7gc5s"]
 
-[ext_resource type="Texture2D" uid="uid://ccgvf26sth13h" path="res://assetts/images/icon.svg" id="1_ntnin"]
+[ext_resource type="Texture2D" uid="uid://dov155wao7rt0" path="res://assetts/images/fwd.svg" id="1_p3mun"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bep3p"]
 font_size = 30
@@ -19,7 +19,7 @@ offset_left = 83.0
 offset_top = 54.0
 offset_right = 211.0
 offset_bottom = 182.0
-texture = ExtResource("1_ntnin")
+texture = ExtResource("1_p3mun")
 
 [node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 0
