@@ -80,7 +80,7 @@ func moveAndRestart(cubeNode:Node3D):
 	
 	#stores child collider and removes them
 	var child = cubeNode.get_child(0)
-	cubeNode.remove_child(child)
+	child.position = Vector3(0,-2,0)
 	
 	#enlarge the cube and wait 1 second
 	cubeNode.scale = Vector3(2,2,2)
@@ -95,7 +95,7 @@ func moveAndRestart(cubeNode:Node3D):
 	cubesDetector = true
 	cubeNode.scale = Vector3(1, 1, 1)
 	cubeNode.visible = true
-	cubeNode.add_child(child)
+	child.position = Vector3(0,0,0)
 		
 func generateRandomPosition(Areax : int, Areaz : int) -> Vector3:
 	var randomX = randi_range(-Areax, Areax)
