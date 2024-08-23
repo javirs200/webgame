@@ -1,7 +1,5 @@
 extends Control
 
-var uiRev = false
-
 var img
 
 # Called when the node enters the scene tree for the first time.
@@ -14,15 +12,9 @@ func _ready():
 func _process(delta):
 	$ScoreLabel.text = str(ScoreManager.getScore())
 	
-	if(uiRev):
+	if(Utils.getGear()):
 		img.texture = load("res://assetts/images/rear.svg")		
 	else:
 		img.texture = load("res://assetts/images/fwd.svg")
 	
 	pass
-	
-func _input(event):
-	
-	if Input.is_action_pressed("rev"):
-		uiRev = !uiRev
-	

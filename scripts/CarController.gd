@@ -1,20 +1,15 @@
 extends Node
 
-const Autodrive = preload("res://scripts/autoDrive.gd")
-
-const horsepower = 20
-const maxSteerAngle = 0.5
+const horsepower = 50
+const maxSteerAngle = 0.6
 
 var thAxis = 0
 var stAxis = 0
 var brake = 0
-var rev = false
 
 var carBody3d
 
 var cubesDetector = true
-
-var ap
 
 var score = 0
 
@@ -24,8 +19,6 @@ func _ready():
 	
 	if carBody3d != null:
 		
-		ap = Autodrive.new(carBody3d)
-		
 		carBody3d.contact_monitor = true
 		carBody3d.max_contacts_reported = 2	
 
@@ -34,7 +27,7 @@ func _ready():
 func _physics_process(delta):
 	if carBody3d != null:
 		var gas = 0
-		if rev && thAxis > 0:
+		if Utils.getGear() && thAxis > 0:
 			gas = -thAxis
 		else :
 			gas = thAxis
@@ -47,21 +40,19 @@ pass
 # called on input change
 func _input(event):
 	# actualizamos los valores de los ejes
-	stAxis = Input.get_axis("std", "sti")
-	
+	stAxis = Input.get_axis("ui_right", "ui_left")
+
 	#---------actions proces-----------
-	if Input.is_action_just_pressed("brk"):
+	if Input.is_action_just_pressed("ui_down"):
 		brake = 1
-	elif Input.is_action_just_released("brk"):
+	elif Input.is_action_just_released("ui_down"):
 		brake = 0
 		
-	thAxis = Input.get_action_strength("th")
+	thAxis = Input.get_action_strength("ui_up")
 
 	if Input.is_action_pressed("rev"):
-		rev = !rev
-		
-	if Input.is_action_just_pressed("ui_right"):
-		ap.doMagic()
+		print("reverse")
+		Utils.swapGear()
 		
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()

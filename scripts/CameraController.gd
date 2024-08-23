@@ -5,7 +5,7 @@ var current_camera_index = 0
 
 func _ready():
 
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	cameras.append($Camera3D1)
 	cameras.append($Coche/VehicleBody3D/CarCamera3D)
