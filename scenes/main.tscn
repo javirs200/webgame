@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://di73esvar3xe"]
 
-[ext_resource type="Script" path="res://scripts/CameraController.gd" id="1_fkrkv"]
-[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://nodes/coche.tscn" id="2_a0l28"]
-[ext_resource type="PackedScene" uid="uid://ditvxpen7gc5s" path="res://nodes/control.tscn" id="3_gr82g"]
-[ext_resource type="Script" path="res://scripts/control.gd" id="4_trc60"]
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="1_2hooq"]
+[ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://nodes/coche.tscn" id="2_37irm"]
+[ext_resource type="PackedScene" uid="uid://ditvxpen7gc5s" path="res://nodes/ui.tscn" id="3_1b2o2"]
+[ext_resource type="Script" path="res://scripts/uiManager.gd" id="4_0roaj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gaggj"]
 
@@ -17,7 +17,7 @@ albedo_color = Color(0.247059, 0.517647, 0.454902, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnt2v"]
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_fkrkv")
+script = ExtResource("1_2hooq")
 
 [node name="Camera3D1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.943864, 0.330333, 0, -0.330333, 0.943864, -2.46557, 9.13873, 9.63521)
@@ -36,7 +36,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_aufre")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_e671y")
 
-[node name="Coche" parent="." instance=ExtResource("2_a0l28")]
+[node name="Coche" parent="." instance=ExtResource("2_37irm")]
 transform = Transform3D(-0.0227048, 0, -0.999742, 0, 1, 0, 0.999742, 0, -0.0227048, 4, 2, 0)
 
 [node name="Cubo" type="MeshInstance3D" parent="."]
@@ -48,5 +48,5 @@ mesh = SubResource("BoxMesh_72ub1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cubo/cubo1"]
 shape = SubResource("BoxShape3D_tnt2v")
 
-[node name="Control" parent="." instance=ExtResource("3_gr82g")]
-script = ExtResource("4_trc60")
+[node name="Control" parent="." instance=ExtResource("3_1b2o2")]
+script = ExtResource("4_0roaj")
