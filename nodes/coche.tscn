@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2dkhoksmylrj"]
+[gd_scene load_steps=7 format=3 uid="uid://c2dkhoksmylrj"]
 
 [ext_resource type="ArrayMesh" uid="uid://d1vbsmlc44l8y" path="res://assetts/3dModels/coche.obj" id="1_4c0e3"]
 [ext_resource type="Script" path="res://scripts/CarController.gd" id="1_31dp1"]
 [ext_resource type="ArrayMesh" uid="uid://4vfadxi4qf4q" path="res://assetts/3dModels/rueda.obj" id="2_0ds6v"]
+[ext_resource type="Script" path="res://scripts/respawner.gd" id="2_75isv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gtp3d"]
 
@@ -15,8 +16,9 @@ script = ExtResource("1_31dp1")
 [node name="VehicleBody3D" type="VehicleBody3D" parent="."]
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_gtp3d")
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_75isv")
 
 [node name="CarCamera3D" type="Camera3D" parent="VehicleBody3D"]
 transform = Transform3D(-1, -1.50052e-14, -8.74227e-08, -4.31834e-10, 0.999988, 0.00493944, 8.74217e-08, 0.00493944, -0.999988, 0, 0.299771, 1.1041)
