@@ -3,3 +3,6 @@
 
 # compiled builds
 exports/
+.vscode/
+
+*.tmp
