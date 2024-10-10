@@ -6,6 +6,37 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gtp3d"]
 
+[sub_resource type="GDScript" id="GDScript_ue6aw"]
+script/source = "extends VehicleBody3D
+
+var spawnOrigin: Vector3
+var spawnRotation: Quaternion
+var reset_state: bool = false
+
+func _ready():
+	spawnOrigin = global_transform.origin
+	spawnRotation = global_transform.basis
+
+func _input(event):
+	if event.is_action_pressed(\"ui_accept\"):
+		# stop the car
+		set_engine_force(0)
+		set_steering(0)
+		set_brake(1)
+		linear_velocity = Vector3(0, 0, 0)
+
+		# reset the car
+		reset_state = true
+
+func _integrate_forces(state):
+	if reset_state:
+		var t :Transform3D = state.get_transform()
+		t.origin = spawnOrigin
+		t.basis = Basis(spawnRotation)
+		reset_state = false
+		state.set_transform(t)
+"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_v8o0d"]
 size = Vector3(1, 4.47211, 1.20416)
 
@@ -17,7 +48,7 @@ mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_gtp3d")
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("2_75isv")
+script = SubResource("GDScript_ue6aw")
 
 [node name="CarCamera3D" type="Camera3D" parent="VehicleBody3D"]
 transform = Transform3D(-1, -1.50052e-14, -8.74227e-08, -4.31834e-10, 0.999988, 0.00493944, 8.74217e-08, 0.00493944, -0.999988, 0, 0.299771, 1.1041)
