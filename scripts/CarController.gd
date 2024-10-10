@@ -13,14 +13,8 @@ var cubesDetector:bool = true
 
 var score:int = 0
 
-var startingPosition: Vector3
-
-
 func _ready():
-	
-	# record Starting position
-	startingPosition = $VehicleBody3D.global_position
-	
+		
 	carBody3d = $VehicleBody3D
 	
 	if carBody3d != null:
@@ -64,11 +58,6 @@ func _input(event):
 		print("reverse gamepad")
 		Utils.swapGear()
 
-	if Input.is_action_pressed("ui_accept"): # A on Xbox controller or Cross on PS4 controller or Enter on keyboard
-		print("starting pos " + str(startingPosition) + " actual pos " + str(carBody3d.position))
-		print("reseting request")
-		print("starting pos " + str(startingPosition) + " actual pos " + str(carBody3d.position))
-		
 	if Input.is_action_pressed("ui_cancel"): # B on Xbox controller or Circle on PS4 controller or ESC on keyboard
 		get_tree().quit()
 	
