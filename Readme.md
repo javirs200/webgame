@@ -5,7 +5,7 @@ A brief description of the game and its purpose. This game was created as a lear
 ## Features
 
 - Run on desktop and mobile
-- A drivable car ( for now only on desktop)
+- A drivable car
 - flying develop cube all platforms
 
 ## Gameplay
