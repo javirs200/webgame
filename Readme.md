@@ -6,7 +6,9 @@ A brief description of the game and its purpose. This game was created as a lear
 
 - Run on desktop and mobile
 - A drivable car
-- flying develop cube all platforms
+- chechpoint cube
+- test track
+- 
 
 ## Gameplay
 
