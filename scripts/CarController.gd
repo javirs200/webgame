@@ -24,7 +24,7 @@ func _ready():
 
 		carBody3d.connect("body_entered", self._on_vehicle_body_entered)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if carBody3d != null:
 		var gas = 0
 		if Utils.getGear() && thAxis > 0:
@@ -38,7 +38,7 @@ func _physics_process(delta):
 pass
 
 # called on input change on phisical device not touch screen
-func _input(event):
+func _input(_event):
 	
 	# actualizamos los valores de los ejes
 	stAxis = Input.get_axis("ui_right", "ui_left") # left stick left and right on gamepad or left and right arrows on keyboard

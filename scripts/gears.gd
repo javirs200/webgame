@@ -12,7 +12,7 @@ func _input(event):
 				else:
 					Utils.setBackward()
 
-func _process(delta):
+func _process(_delta):
 	if(Utils.getGear()):
 		texture = gears2
 	else:

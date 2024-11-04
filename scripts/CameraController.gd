@@ -14,7 +14,7 @@ func _ready():
 		cameras[current_camera_index].current = true
 
 # called on input change
-func _input(event):
+func _input(_event):
 
 	if Input.is_action_just_pressed("toggle_camera"):
 		change_camera()
