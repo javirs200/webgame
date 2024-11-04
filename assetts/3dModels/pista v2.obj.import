@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dsiw6xo2rimtl"
+path="res://.godot/imported/pista v2.obj-fa4feb0bac5527cc7fb49076a1558f88.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pista v2.obj-fa4feb0bac5527cc7fb49076a1558f88.mesh"]
+
+source_file="res://assetts/3dModels/pista v2.obj"
+dest_files=["res://.godot/imported/pista v2.obj-fa4feb0bac5527cc7fb49076a1558f88.mesh", "res://.godot/imported/pista v2.obj-fa4feb0bac5527cc7fb49076a1558f88.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
