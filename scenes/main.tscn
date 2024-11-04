@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://di73esvar3xe"]
+[gd_scene load_steps=12 format=3 uid="uid://di73esvar3xe"]
 
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="1_2hooq"]
-[ext_resource type="PackedScene" uid="uid://dsr3pfkkik2xh" path="res://nodes/Map.tscn" id="2_0t1ug"]
+[ext_resource type="PackedScene" uid="uid://dsr3pfkkik2xh" path="res://nodes/track1.tscn" id="2_0t1ug"]
 [ext_resource type="PackedScene" uid="uid://c2dkhoksmylrj" path="res://nodes/coche.tscn" id="2_37irm"]
 [ext_resource type="PackedScene" uid="uid://ditvxpen7gc5s" path="res://nodes/ui.tscn" id="3_1b2o2"]
+[ext_resource type="PackedScene" uid="uid://2vx5bybnf8m5" path="res://nodes/track2.tscn" id="3_kixnx"]
 [ext_resource type="Script" path="res://scripts/uiManager.gd" id="4_0roaj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gaggj"]
@@ -20,8 +21,11 @@ albedo_color = Color(0.247059, 0.517647, 0.454902, 1)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_2hooq")
 
-[node name="Map" parent="." instance=ExtResource("2_0t1ug")]
-transform = Transform3D(0.138897, 0, 0.990307, 0, 1, 0, -0.990307, 0, 0.138897, -21.6466, 0, 0)
+[node name="track1" parent="." instance=ExtResource("2_0t1ug")]
+transform = Transform3D(0.138897, 0, 0.990307, 0, 1, 0, -0.990307, 0, 0.138897, -21.6466, 0, 113.133)
+
+[node name="track2" parent="." instance=ExtResource("3_kixnx")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 0, 0, 0)
 
 [node name="Camera3D1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.943864, 0.330333, 0, -0.330333, 0.943864, -2.46557, 9.13873, 9.63521)
