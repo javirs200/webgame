@@ -58,8 +58,9 @@ func _input(_event):
 		print("reverse gamepad")
 		Utils.swapGear()
 
-	if Input.is_action_pressed("ui_cancel"): # B on Xbox controller or Circle on PS4 controller or ESC on keyboard
-		get_tree().quit()
+	if OS.get_name() != "Web": #fix exit on web frezes de screen 
+		if Input.is_action_pressed("ui_cancel"): # B on Xbox controller or Circle on PS4 controller or ESC on keyboard
+			get_tree().quit()
 	
 func _on_vehicle_body_entered(body: PhysicsBody3D):
 	#print("VehicleBody3D collided with: " + body.name)
