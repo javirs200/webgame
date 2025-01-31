@@ -1,6 +1,6 @@
 # WebGame
 
-A brief description of the game and its purpose. This game was created as a learning and testing project to explore the capabilities of the Godot game engine and HTML5 exports.
+This game was created as a learning and testing project to explore the capabilities of the Godot game engine and HTML5 exports.
 
 ## Features
 
