@@ -15,6 +15,9 @@ var cubesDetector:bool = true
 
 var score:int = 0
 
+var actionB = "ui_down"
+var actionTH = "ui_up"
+
 func _ready():
 		
 	carBody3d = $VehicleBody3D
@@ -53,20 +56,21 @@ func _input(_event):
 	# actualizamos los valores de los ejes
 	stAxis = Input.get_axis("ui_right", "ui_left") # left stick left and right on gamepad or left and right arrows on keyboard
 
+	if Input.get_connected_joypads().size() < 1:
+		actionB = "ui_down"
+		actionTH = "ui_up"
+	else:
+		actionB = "aux_brk"
+		actionTH = "aux_th"
+
 	#---------actions proces-----------
-	if Input.is_action_just_pressed("ui_down"): # Down on keyboard or left stick down on gamepad
+	if Input.is_action_just_pressed(actionB): # Down on keyboard or left stick down on gamepad
 		brake = 1
-	elif Input.is_action_just_released("ui_down"):
+	elif Input.is_action_just_released(actionB):
 		brake = 0
-		
-	if Input.is_action_just_pressed("aux_brk"): # left trigger more preference
-		brake = 1
-	elif Input.is_action_just_released("aux_brk"):
-		brake = 0
+
+	thAxis = Input.get_action_strength(actionTH) # Up on keyboard or left stick up on gamepad
 	
-	thAxis = Input.get_action_strength("ui_up") # Up on keyboard or left stick up on gamepad
-	
-	thAxis = Input.get_action_strength("aux_th") # right trigger more preference
 
 	if Input.is_action_pressed("rev"): # R on keyboard
 		print("reverse keyboard")

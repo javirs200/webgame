@@ -7,7 +7,8 @@ func _ready():
 	pass # Replace with function body.
 	
 func _process(delta: float) -> void:
-	if Input.get_connected_joypads().size() < 1:
-		hide()
-	else:
-		show()
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		if Input.get_connected_joypads().size() < 1:
+			show()
+		else:
+			hide()
