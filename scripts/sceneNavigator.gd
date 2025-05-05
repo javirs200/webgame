@@ -8,6 +8,7 @@ func _input(event):
 			if _is_point_inside(event.position):
 				navigate = true
 	elif Input.is_action_pressed("ui_select"):
+		print("reload scene")
 		navigate = true
 		
 	if navigate:

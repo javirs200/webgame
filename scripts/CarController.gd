@@ -7,6 +7,8 @@ var thAxis:float = 0
 var stAxis:float = 0
 var brake:float = 0
 
+var help:bool = false
+
 var carBody3d: VehicleBody3D
 
 var cubesDetector:bool = true
@@ -35,6 +37,14 @@ func _physics_process(_delta):
 		carBody3d.set_engine_force(gas * horsepower)
 		carBody3d.set_steering(stAxis * maxSteerAngle)
 		carBody3d.set_brake(brake)
+		
+		if help:
+			print("helpactivated")
+			carBody3d.position = carBody3d.position + Vector3(0,2,0)
+			var roll_angle_difference = 0 - carBody3d.rotation_degrees.z
+			carBody3d.rotate_x(roll_angle_difference)
+			help = false
+		
 pass
 
 # called on input change on phisical device not touch screen
@@ -49,7 +59,14 @@ func _input(_event):
 	elif Input.is_action_just_released("ui_down"):
 		brake = 0
 		
+	if Input.is_action_just_pressed("aux_brk"): # left trigger more preference
+		brake = 1
+	elif Input.is_action_just_released("aux_brk"):
+		brake = 0
+	
 	thAxis = Input.get_action_strength("ui_up") # Up on keyboard or left stick up on gamepad
+	
+	thAxis = Input.get_action_strength("aux_th") # right trigger more preference
 
 	if Input.is_action_pressed("rev"): # R on keyboard
 		print("reverse keyboard")
@@ -57,6 +74,10 @@ func _input(_event):
 	elif Input.is_action_pressed("ui_select"): # Y on Xbox controller or Triangle on PS4 controller or space on keyboard
 		print("reverse gamepad")
 		Utils.swapGear()
+		
+	if Input.is_action_just_pressed("ui_menu"):
+		help = true
+		print("help need")
 
 	if OS.get_name() != "Web": #fix exit on web frezes de screen 
 		if Input.is_action_pressed("ui_cancel"): # B on Xbox controller or Circle on PS4 controller or ESC on keyboard

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crbqqhagtx8dk"]
 
-[ext_resource type="Script" path="res://scripts/sceneNavigator.gd" id="1_xbw6a"]
+[ext_resource type="Script" uid="uid://dq63vypoijgft" path="res://scripts/sceneNavigator.gd" id="1_xbw6a"]
 [ext_resource type="Texture2D" uid="uid://dal0m7cam1sn7" path="res://assetts/images/fondo.svg" id="2_y63bf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_trs3m"]

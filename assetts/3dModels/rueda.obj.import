@@ -16,7 +16,10 @@ dest_files=["res://.godot/imported/rueda.obj-6c73e7f067c0d79898644f1f931878cf.me
 [params]
 
 generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
 scale_mesh=Vector3(0.3, 0.3, 0.3)
 offset_mesh=Vector3(0, 1.05, 0)
-optimize_mesh=true
 force_disable_mesh_compression=false

@@ -1,18 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://ditvxpen7gc5s"]
+[gd_scene load_steps=17 format=3 uid="uid://ditvxpen7gc5s"]
 
 [ext_resource type="Texture2D" uid="uid://dov155wao7rt0" path="res://assetts/images/fwd.svg" id="1_p3mun"]
-[ext_resource type="Script" path="res://scripts/touchScreenDetector.gd" id="2_38ush"]
+[ext_resource type="Script" uid="uid://qs7ek1bxn6bk" path="res://scripts/touchScreenDetector.gd" id="2_38ush"]
 [ext_resource type="Texture2D" uid="uid://dsoato38xnj5e" path="res://assetts/images/arrowL.svg" id="2_eyqo2"]
-[ext_resource type="Script" path="res://scripts/left.gd" id="3_8ln7g"]
+[ext_resource type="Script" uid="uid://dvoqwtrugnore" path="res://scripts/left.gd" id="3_8ln7g"]
 [ext_resource type="Texture2D" uid="uid://drhjxetq1evbm" path="res://assetts/images/arrowR.svg" id="3_ahnv1"]
 [ext_resource type="Texture2D" uid="uid://de5b3t186wj0u" path="res://assetts/images/cam.svg" id="3_ost5n"]
-[ext_resource type="Script" path="res://scripts/camBtn.gd" id="4_2ptd6"]
+[ext_resource type="Script" uid="uid://k1xe5wwiwtgh" path="res://scripts/camBtn.gd" id="4_2ptd6"]
 [ext_resource type="Texture2D" uid="uid://dodnm2qvq4mop" path="res://assetts/images/pedal.svg" id="4_pdoo3"]
-[ext_resource type="Script" path="res://scripts/right.gd" id="5_i2pmx"]
-[ext_resource type="Script" path="res://scripts/gas.gd" id="7_82sb5"]
-[ext_resource type="Script" path="res://scripts/brake.gd" id="8_1q10h"]
+[ext_resource type="Script" uid="uid://glfqj3pybm4s" path="res://scripts/right.gd" id="5_i2pmx"]
+[ext_resource type="Texture2D" uid="uid://denve1xucvwsx" path="res://assetts/images/help.svg" id="5_l61so"]
+[ext_resource type="Script" uid="uid://dxhb0tay2djc6" path="res://scripts/helpBtn.gd" id="6_8p5kn"]
+[ext_resource type="Script" uid="uid://3o7v132vwtue" path="res://scripts/gas.gd" id="7_82sb5"]
+[ext_resource type="Script" uid="uid://blnik7hlmifsi" path="res://scripts/brake.gd" id="8_1q10h"]
 [ext_resource type="Texture2D" uid="uid://rwo2l11pyvbm" path="res://assetts/images/gears1.svg" id="9_ikcyv"]
-[ext_resource type="Script" path="res://scripts/gears.gd" id="10_evg3f"]
+[ext_resource type="Script" uid="uid://d2tttp0n4x0rj" path="res://scripts/gears.gd" id="10_evg3f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bep3p"]
 font_size = 30
@@ -68,6 +70,19 @@ offset_bottom = 138.0
 grow_horizontal = 0
 texture = ExtResource("3_ost5n")
 script = ExtResource("4_2ptd6")
+
+[node name="helpBtn" type="TextureRect" parent="TouchControls"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -297.0
+offset_top = 19.0
+offset_right = -177.0
+offset_bottom = 139.0
+grow_horizontal = 0
+texture = ExtResource("5_l61so")
+script = ExtResource("6_8p5kn")
 
 [node name="pedals" type="Control" parent="TouchControls"]
 layout_mode = 1
