@@ -6,7 +6,8 @@ func _ready():
 		hide()
 	pass # Replace with function body.
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# checks if gamepad is conected or not onTheGo
 	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		if Input.get_connected_joypads().size() < 1:
 			show()
